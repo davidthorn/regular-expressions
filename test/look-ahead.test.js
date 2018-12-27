@@ -47,6 +47,43 @@ var LookAheadRegularExpressionsUnitTest = /** @class */ (function () {
         var result = text.match(reg);
         chai_1.expect(result).to.not.be.null;
     };
+    LookAheadRegularExpressionsUnitTest.prototype["that we can capture a repeated sequence of items"] = function () {
+        var reg = /([\w]*)\s*([\w]+)\s*:\s*([\w]+)/g;
+        var paramReg = new RegExp(reg.source);
+        var text = "_ name: String, _ surname: String, person age: Int";
+        var result = text.match(reg);
+        chai_1.expect(result).to.not.be.null;
+        if (result === null)
+            return;
+        var params = result.map(function (item) { return item.match(paramReg); });
+        chai_1.expect(params.length).to.equal(3);
+        if (params.length !== 2)
+            chai_1.expect(params.length).to.not.equal(2);
+        var name = params[0];
+        var surname = params[1];
+        var age = params[2];
+        chai_1.expect(name).to.be.not.undefined;
+        chai_1.expect(name).to.be.not.null;
+        chai_1.expect(surname).to.be.not.undefined;
+        chai_1.expect(surname).to.be.not.null;
+        chai_1.expect(age).to.be.not.undefined;
+        chai_1.expect(age).to.be.not.null;
+        if (name === null)
+            return;
+        chai_1.expect(name[1]).to.equal('_');
+        chai_1.expect(name[2]).to.equal('name');
+        chai_1.expect(name[3]).to.equal('String');
+        if (surname === null)
+            return;
+        chai_1.expect(surname[1]).to.equal('_');
+        chai_1.expect(surname[2]).to.equal('surname');
+        chai_1.expect(surname[3]).to.equal('String');
+        if (age === null)
+            return;
+        chai_1.expect(age[1]).to.equal('person');
+        chai_1.expect(age[2]).to.equal('age');
+        chai_1.expect(age[3]).to.equal('Int');
+    };
     __decorate([
         test
     ], LookAheadRegularExpressionsUnitTest.prototype, "that the sentence contains the keyword func", null);
@@ -62,6 +99,9 @@ var LookAheadRegularExpressionsUnitTest = /** @class */ (function () {
     __decorate([
         test
     ], LookAheadRegularExpressionsUnitTest.prototype, "that the func keyword exists after access level", null);
+    __decorate([
+        test
+    ], LookAheadRegularExpressionsUnitTest.prototype, "that we can capture a repeated sequence of items", null);
     LookAheadRegularExpressionsUnitTest = __decorate([
         suite('Look Ahead Regular Expression')
     ], LookAheadRegularExpressionsUnitTest);

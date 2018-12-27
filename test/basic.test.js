@@ -14,7 +14,14 @@ var BasicRegularExpressionsUnitTest = /** @class */ (function () {
     BasicRegularExpressionsUnitTest.prototype["matching a name in a string"] = function () {
         var reg = /david/;
         var text = "my name is david thorn";
-        chai_1.expect(text.match(reg)).to.not.be.null;
+        var result = text.match(reg);
+        chai_1.expect(result).to.not.be.null;
+    };
+    BasicRegularExpressionsUnitTest.prototype["Capturing the name which has been found"] = function () {
+        var reg = /(david)/;
+        var text = "my name is david thorn";
+        var result = text.match(reg);
+        chai_1.expect(result).to.not.be.null;
     };
     BasicRegularExpressionsUnitTest.prototype["matching that a phone number has from 11-15 digits"] = function () {
         var phoneNumber = "00441320193943";
@@ -24,6 +31,9 @@ var BasicRegularExpressionsUnitTest = /** @class */ (function () {
     __decorate([
         test
     ], BasicRegularExpressionsUnitTest.prototype, "matching a name in a string", null);
+    __decorate([
+        test
+    ], BasicRegularExpressionsUnitTest.prototype, "Capturing the name which has been found", null);
     __decorate([
         test
     ], BasicRegularExpressionsUnitTest.prototype, "matching that a phone number has from 11-15 digits", null);
