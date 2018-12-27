@@ -1,0 +1,28 @@
+{
+  "name": "regular-expressions",
+  "version": "1.0.0",
+  "description": "A project which asists people to learn about using regular expression using unit testing",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "nyc mocha",
+    "pretest": "tsc",
+    "watch": "mocha-typescript-watch",
+    "prepare": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidthorn/regular-expressions.git"
+},
+  "author": "David Thorn <david.thorn221278@googlemail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "mocha-typescript": "^1.1.17",
+    "nyc": "^13.1.0",
+    "source-map-support": "^0.5.9",
+    "typescript": "^3.2.2"
+  }
+}

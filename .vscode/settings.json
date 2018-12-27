@@ -1,0 +1,9 @@
+{
+    "files.exclude": {
+        "**/*.js": true,
+        "**/*.js.map": true,
+        "**/*.opts": true,
+        "LICENSE": true,
+        "node_modules": true
+    }
+}
